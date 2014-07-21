@@ -78,4 +78,16 @@ class Tap_BaseController extends BaseController
             ),
         ));
     }
+
+    /**
+     * Respond Not Found
+     *
+     * @param string $message Message
+     *
+     * @return void
+     */
+    public function respondNotFound($message = "Not Found")
+    {
+        return $this->setStatusCode(404)->respondWithError($message);
+    }
 }
