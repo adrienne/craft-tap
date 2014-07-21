@@ -25,6 +25,17 @@ class Tap_ElementTransformerService extends BaseApplicationComponent
      */
     public function transformElement($element)
     {
+        $attribute_configs = $element->getAttributeConfigs();
+        $attributes = $element->getAttributes();
+
+        $element = array();
+
+        foreach ($attributes as $name => $value) {
+            $attribute_config = $attribute_configs[$name];
+
+            $element[$name] = $this->formatAttribute($value, $attribute_config);
+        }
+
         return $element;
     }
 
