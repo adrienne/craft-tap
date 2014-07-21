@@ -51,7 +51,7 @@ class Tap_BaseController extends BaseController
     /**
      * Respond
      *
-     * @param mixed   $data        Data
+     * @param mixed $data Data
      *
      * @return void
      */
@@ -65,7 +65,7 @@ class Tap_BaseController extends BaseController
     /**
      * Respond With Error
      *
-     * @param string  $message     Message
+     * @param string $message Message
      *
      * @return void
      */
