@@ -56,12 +56,8 @@ class Tap_BaseController extends BaseController
      *
      * @return void
      */
-    public function respond($data, $status_code = null)
+    public function respond($data)
     {
-        if (! is_null($status_code)) {
-            $this->setStatusCode($status_code);
-        }
-
         http_response_code($this->getStatusCode());
 
         return $this->returnJson($data);
@@ -75,10 +71,10 @@ class Tap_BaseController extends BaseController
      *
      * @return void
      */
-    public function respondWithError($message, $status_code = 400)
+    public function respondWithError($message)
     {
         return $this->respond(array(
             'error' => $message,
-        ), $status_code);
+        ));
     }
 }
