@@ -52,7 +52,6 @@ class Tap_BaseController extends BaseController
      * Respond
      *
      * @param mixed   $data        Data
-     * @param integer $status_code Status Code
      *
      * @return void
      */
@@ -67,7 +66,6 @@ class Tap_BaseController extends BaseController
      * Respond With Error
      *
      * @param string  $message     Message
-     * @param integer $status_code Status Code
      *
      * @return void
      */
