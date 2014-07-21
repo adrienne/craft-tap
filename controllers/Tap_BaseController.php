@@ -80,6 +80,18 @@ class Tap_BaseController extends BaseController
     }
 
     /**
+     * Respond Bad Request
+     *
+     * @param string $message Message
+     *
+     * @return void
+     */
+    public function respondBadRequest($message = "Bad Request")
+    {
+        return $this->setStatusCode(400)->respondWithError($message);
+    }
+
+    /**
      * Respond Not Found
      *
      * @param string $message Message
