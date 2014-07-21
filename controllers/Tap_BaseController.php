@@ -38,9 +38,13 @@ class Tap_BaseController extends BaseController
      * Set Status Code
      *
      * @param integer $status_code Status Code
+     *
+     * @return Tap_BaseController
      */
     public function setStatusCode($status_code)
     {
         $this->statusCode = (integer) $status_code;
+
+        return $this;
     }
 }
