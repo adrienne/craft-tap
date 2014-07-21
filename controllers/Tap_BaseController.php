@@ -5,6 +5,13 @@ namespace Craft;
 class Tap_BaseController extends BaseController
 {
     /**
+     * Status Code
+     *
+     * @var integer
+     */
+    protected $statusCode = 200;
+
+    /**
      * Initialize
      *
      * @return void
@@ -15,5 +22,25 @@ class Tap_BaseController extends BaseController
         craft()->log->removeRoute('ProfileLogRoute');
 
         parent::init();
+    }
+
+    /**
+     * Get Status Code
+     *
+     * @return integer Status Code
+     */
+    public function getStatusCode()
+    {
+        return $this->statusCode;
+    }
+
+    /**
+     * Set Status Code
+     *
+     * @param integer $status_code Status Code
+     */
+    public function setStatusCode($status_code)
+    {
+        $this->statusCode = (integer) $status_code;
     }
 }
