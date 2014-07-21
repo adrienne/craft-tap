@@ -74,7 +74,10 @@ class Tap_BaseController extends BaseController
     public function respondWithError($message)
     {
         return $this->respond(array(
-            'error' => $message,
+            'error' => array(
+                'status_code' => $this->getStatusCode(),
+                'message'     => $message,
+            ),
         ));
     }
 }
