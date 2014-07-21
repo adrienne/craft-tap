@@ -27,4 +27,28 @@ class Tap_ElementTransformerService extends BaseApplicationComponent
     {
         return $element;
     }
+
+    /**
+     * Format Attribute
+     *
+     * @param mixed $value  Value
+     * @param array $config Config
+     *
+     * @return mixed Value
+     */
+    public function formatAttribute($value, $config)
+    {
+        $value = ModelHelper::packageAttributeValue($value);
+
+        switch ($config['type']) {
+            case 'bool':
+                settype($value, 'bool');
+                break;
+            case 'number':
+                settype($value, ($config['decimals'] > 0) ? 'float' : 'integer');
+                break;
+        }
+
+        return $value;
+    }
 }
