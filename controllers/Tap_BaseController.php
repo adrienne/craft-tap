@@ -47,4 +47,23 @@ class Tap_BaseController extends BaseController
 
         return $this;
     }
+
+    /**
+     * Respond
+     *
+     * @param mixed   $data        Data
+     * @param integer $status_code Status Code
+     *
+     * @return void
+     */
+    public function respond($data, $status_code = null)
+    {
+        if (! is_null($status_code)) {
+            $this->setStatusCode($status_code);
+        }
+
+        http_response_code($this->getStatusCode());
+
+        return $this->returnJson($data);
+    }
 }
