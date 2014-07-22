@@ -27,14 +27,12 @@ class Tap_ElementController extends Tap_BaseController
         $type = $this->getElementTypeFromActionVariables($variables);
 
         try {
-            $criteria = craft()->elements->getCriteria($type);
+            $elements = craft()->elements->getCriteria($type)->find();
         } catch (Exception $exception) {
             $this->respondBadRequest();
         }
 
-        $results = $criteria->find();
-
-        return $this->respond(craft()->tap_modelTransformer->transformCollection($results));
+        return $this->respond(craft()->tap_modelTransformer->transformCollection($elements));
     }
 
     public function actionStore(array $variables)
