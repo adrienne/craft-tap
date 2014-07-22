@@ -25,41 +25,12 @@ class Tap_ElementTransformerService extends BaseApplicationComponent
      */
     public function transformItem(BaseElementModel $model)
     {
-        $attribute_configs = $model->getAttributeConfigs();
-        $attributes = $model->getAttributes();
+        $item = craft()->tap_modelTransformer->transformItem($model);
 
-        $item = array();
+        $content = $model->getContent();
 
-        foreach ($attributes as $name => $value) {
-            $attribute_config = $attribute_configs[$name];
-
-            $item[$name] = $this->transformAttribute($value, $attribute_config);
-        }
+        $item['content'] = craft()->tap_modelTransformer->transformItem($content);
 
         return $item;
-    }
-
-    /**
-     * Transform Attribute
-     *
-     * @param mixed $value  Value
-     * @param array $config Config
-     *
-     * @return mixed Value
-     */
-    public function transformAttribute($value, $config)
-    {
-        $value = ModelHelper::packageAttributeValue($value);
-
-        switch ($config['type']) {
-            case 'bool':
-                settype($value, 'bool');
-                break;
-            case 'number':
-                settype($value, ($config['decimals'] > 0) ? 'float' : 'integer');
-                break;
-        }
-
-        return $value;
     }
 }
