@@ -2,7 +2,7 @@
 
 namespace Craft;
 
-class Tap_ModelTransformerService extends BaseApplicationComponent
+class Tap_ElementTransformerService extends BaseApplicationComponent
 {
     /**
      * Transform Collection
@@ -19,11 +19,11 @@ class Tap_ModelTransformerService extends BaseApplicationComponent
     /**
      * Transform Item
      *
-     * @param BaseModel $model Model
+     * @param BaseElementModel $model Model
      *
      * @return array Item
      */
-    public function transformItem(BaseModel $model)
+    public function transformItem(BaseElementModel $model)
     {
         $attribute_configs = $model->getAttributeConfigs();
         $attributes = $model->getAttributes();
