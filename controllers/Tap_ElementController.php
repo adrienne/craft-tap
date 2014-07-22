@@ -32,15 +32,9 @@ class Tap_ElementController extends Tap_BaseController
             $this->respondBadRequest();
         }
 
-        $content = array_map(function ($element) {
-            return $element->getContent();
-        }, $elements);
-
-        $data = array(
-            'elements' => array_replace_recursive(craft()->tap_modelTransformer->transformCollection($elements), craft()->tap_modelTransformer->transformCollection($content)),
-        );
-
-        return $this->respond($data);
+        return $this->respond(array(
+            'elements' => craft()->tap_elementTransformer->transformCollection($elements),
+        ));
     }
 
     public function actionStore(array $variables)
