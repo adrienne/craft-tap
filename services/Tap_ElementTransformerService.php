@@ -29,7 +29,13 @@ class Tap_ElementTransformerService extends BaseApplicationComponent
 
         $content = $model->getContent();
 
-        $item['content'] = craft()->tap_modelTransformer->transformItem($content);
+        $fields = array_map(function (FieldLayoutFieldModel $model) {
+            return $model->getField();
+        }, $model->getFieldLayout()->getFields());
+
+        foreach ($fields as $field) {
+            $item[$field->handle] = $content->{$field->handle};
+        }
 
         return $item;
     }
