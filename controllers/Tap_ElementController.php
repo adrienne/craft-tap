@@ -32,7 +32,11 @@ class Tap_ElementController extends Tap_BaseController
             $this->respondBadRequest();
         }
 
-        return $this->respond(craft()->tap_modelTransformer->transformCollection($elements));
+        $data = array(
+            'elements' => craft()->tap_modelTransformer->transformCollection($elements),
+        );
+
+        return $this->respond($data);
     }
 
     public function actionStore(array $variables)
