@@ -56,23 +56,23 @@ class TapPlugin extends BasePlugin
         $request_type = craft()->request->getRequestType();
 
         if ($request_type == 'GET') {
-            $routes['tap/(?P<element>\w+)'] = array('action' => 'tap/element/index');
+            $routes['tap/(?P<element>\w+)'] = array('action' => 'tap/elementResource/index');
         }
 
         if ($request_type == 'POST') {
-            $routes['tap/(?P<element>\w+)'] = array('action' => 'tap/element/store');
+            $routes['tap/(?P<element>\w+)'] = array('action' => 'tap/elementResource/store');
         }
 
         if ($request_type == 'GET') {
-            $routes['tap/(?P<element>\w+)/(?P<id>\d+)'] = array('action' => 'tap/element/show');
+            $routes['tap/(?P<element>\w+)/(?P<id>\d+)'] = array('action' => 'tap/elementResource/show');
         }
 
         if (in_array($request_type, array('PUT', 'PATCH'))) {
-            $routes['tap/(?P<element>\w+)/(?P<id>\d+)'] = array('action' => 'tap/element/update');
+            $routes['tap/(?P<element>\w+)/(?P<id>\d+)'] = array('action' => 'tap/elementResource/update');
         }
 
         if ($request_type == 'DELETE') {
-            $routes['tap/(?P<element>\w+)/(?P<id>\d+)'] = array('action' => 'tap/element/destroy');
+            $routes['tap/(?P<element>\w+)/(?P<id>\d+)'] = array('action' => 'tap/elementResource/destroy');
         }
 
         return $routes;
