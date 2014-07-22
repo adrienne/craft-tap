@@ -4,11 +4,25 @@ namespace Craft;
 
 class Tap_ModelTransformerService extends BaseApplicationComponent
 {
+    /**
+     * Transform Collection
+     *
+     * @param array $collection Collection
+     *
+     * @return array Collection
+     */
     public function transformCollection(array $collection)
     {
         return array_map(array($this, 'transformModel'), $collection);
     }
 
+    /**
+     * Transform Model
+     *
+     * @param BaseModel $model Model
+     *
+     * @return array Model
+     */
     public function transformModel($model)
     {
         $attribute_configs = $model->getAttributeConfigs();
@@ -25,6 +39,14 @@ class Tap_ModelTransformerService extends BaseApplicationComponent
         return $model;
     }
 
+    /**
+     * Format Attribute
+     *
+     * @param mixed $value  Value
+     * @param array $config Config
+     *
+     * @return mixed Value
+     */
     public function formatAttribute($value, $config)
     {
         $value = ModelHelper::packageAttributeValue($value);
