@@ -13,41 +13,41 @@ class Tap_ModelTransformerService extends BaseApplicationComponent
      */
     public function transformCollection(array $collection)
     {
-        return array_map(array($this, 'transformModel'), $collection);
+        return array_map(array($this, 'transformItem'), $collection);
     }
 
     /**
-     * Transform Model
+     * Transform Item
      *
      * @param BaseModel $model Model
      *
-     * @return array Model
+     * @return array Item
      */
-    public function transformModel(BaseModel $model)
+    public function transformItem(BaseModel $model)
     {
         $attribute_configs = $model->getAttributeConfigs();
         $attributes = $model->getAttributes();
 
-        $model = array();
+        $item = array();
 
         foreach ($attributes as $name => $value) {
             $attribute_config = $attribute_configs[$name];
 
-            $model[$name] = $this->formatAttribute($value, $attribute_config);
+            $item[$name] = $this->transformAttribute($value, $attribute_config);
         }
 
-        return $model;
+        return $item;
     }
 
     /**
-     * Format Attribute
+     * Transform Attribute
      *
      * @param mixed $value  Value
      * @param array $config Config
      *
      * @return mixed Value
      */
-    public function formatAttribute($value, $config)
+    public function transformAttribute($value, $config)
     {
         $value = ModelHelper::packageAttributeValue($value);
 
