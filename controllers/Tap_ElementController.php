@@ -11,11 +11,20 @@ class Tap_ElementController extends Tap_BaseController
      */
     protected $allowAnonymous = true;
 
-    public function actionIndex(array $variables)
+    protected function getElementTypeFromActionVariables(array $variables)
     {
+        if (! array_key_exists('element', $variables)) {
+            return false;
+        }
+
         $element = $variables['element'];
 
-        $type = ucwords(strtolower($element));
+        return ucwords(strtolower($element));
+    }
+
+    public function actionIndex(array $variables)
+    {
+        $type = $this->getElementTypeFromActionVariables($variables);
 
         try {
             $criteria = craft()->elements->getCriteria($type);
