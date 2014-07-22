@@ -25,7 +25,7 @@ class Tap_ElementController extends Tap_BaseController
 
         $results = $criteria->find();
 
-        return $this->respond(craft()->tap_elementTransformer->transformCollection($results));
+        return $this->respond(craft()->tap_modelTransformer->transformCollection($results));
     }
 
     public function actionStore(array $variables)
