@@ -23,7 +23,7 @@ class Tap_ModelTransformerService extends BaseApplicationComponent
      *
      * @return array Model
      */
-    public function transformModel($model)
+    public function transformModel(BaseModel $model)
     {
         $attribute_configs = $model->getAttributeConfigs();
         $attributes = $model->getAttributes();
