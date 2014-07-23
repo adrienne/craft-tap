@@ -25,18 +25,49 @@ class Tap_ElementTransformerService extends BaseApplicationComponent
      */
     public function transformItem(BaseElementModel $model)
     {
-        $item = craft()->tap_modelTransformer->transformItem($model);
-
+        $type = craft()->elements->getElementType($model->getElementType());
         $content = $model->getContent();
 
-        $fields = array_map(function (FieldLayoutFieldModel $model) {
-            return $model->getField();
-        }, $model->getFieldLayout()->getFields());
+        $attribute_configs = $content->getAttributeConfigs();
+        $attributes = $content->getAttributes();
 
-        foreach ($fields as $field) {
-            $item[$field->handle] = $content->{$field->handle};
+        $item = array();
+
+        $item = array_replace(craft()->tap_modelTransformer->transformItem($model), $item);
+
+        if ($type->hasTitles()) {
+            $item['title'] = $this->transformAttribute($attributes['title'], $attribute_configs['title']);
+        }
+
+        if ($type->hasContent()) {
+            $fields = array_map(function (FieldLayoutFieldModel $model) {
+                return $model->getField();
+            }, $model->getFieldLayout()->getFields());
+
+            foreach ($fields as $field) {
+                $item[$field->handle] = $this->transformAttribute($model->{$field->handle}, $attribute_configs[$field->handle]);
+            }
+        }
+
+        if (! array_key_exists('status', $item) && $type->hasStatuses()) {
+            $item['status'] = $model->getStatus();
         }
 
         return $item;
+    }
+
+    /**
+     * Transform Attribute
+     *
+     * @param mixed $value  Value
+     * @param array $config Config
+     *
+     * @return mixed Value
+     */
+    public function transformAttribute($value, array $config)
+    {
+        $value = craft()->tap_modelTransformer->transformAttribute($value, $config);
+
+        return $value;
     }
 }
