@@ -45,7 +45,7 @@ class Tap_ModelTransformerService extends BaseApplicationComponent
      *
      * @return mixed Value
      */
-    public function transformAttribute($value, $config)
+    public function transformAttribute($value, array $config)
     {
         $value = ModelHelper::packageAttributeValue($value);
 
