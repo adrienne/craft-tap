@@ -20,6 +20,8 @@ class Tap_ElementResourceController extends Tap_ResourceController
         $elements = $criteria->find();
 
         return $this->respond(array(
+            'count'    => $criteria->count(),
+            'total'    => $criteria->total(),
             'elements' => craft()->tap_elementTransformer->transformCollection($elements),
         ));
     }
