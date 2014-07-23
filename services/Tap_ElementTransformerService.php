@@ -49,7 +49,7 @@ class Tap_ElementTransformerService extends BaseApplicationComponent
             }
         }
 
-        if (! array_key_exists('status', $item) && $type->hasStatuses()) {
+        if ($type->hasStatuses()) {
             $item['status'] = $model->getStatus();
         }
 
