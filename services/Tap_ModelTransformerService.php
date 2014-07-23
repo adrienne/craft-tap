@@ -31,9 +31,7 @@ class Tap_ModelTransformerService extends BaseApplicationComponent
         $item = array();
 
         foreach ($attributes as $name => $value) {
-            $attribute_config = $attribute_configs[$name];
-
-            $item[$name] = $this->transformAttribute($value, $attribute_config);
+            $item[$name] = $this->transformAttribute($value, $attribute_configs[$name]);
         }
 
         return $item;
