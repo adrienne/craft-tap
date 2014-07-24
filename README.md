@@ -7,9 +7,15 @@ This plugin provides a means for you to *Tap* into your Craft installation progr
 ### Routes
 
 Verb      | Path                | Action
-:-------- | :------------------ | :------
+:---      | :---                | :-----
 GET       | /tap/{element}      | index
 POST      | /tap/{element}      | store
 GET       | /tap/{element}/{id} | show
 PUT,PATCH | /tap/{element}/{id} | update
 DELETE    | /tap/{element}/{id} | destroy
+
+### Config
+
+Parameter | Type   | Default | Description
+:-------- | :---   | :------ | :----------
+prefix    | string | tap     | Specify a value to prefix Endpoints with
