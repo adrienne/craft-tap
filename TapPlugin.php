@@ -53,29 +53,10 @@ class TapPlugin extends BasePlugin
     {
         $routes = array();
 
-        $request_type = craft()->request->getRequestType();
-
+        $elements = craft()->config->get('elements', 'tap');
         $prefix = trim(craft()->config->get('prefix', 'tap'), '/');
 
-        if ($request_type == 'GET') {
-            $routes[$prefix.'/(?P<element>\w+)'] = array('action' => 'tap/elementResource/index');
-        }
-
-        if ($request_type == 'POST') {
-            $routes[$prefix.'/(?P<element>\w+)'] = array('action' => 'tap/elementResource/store');
-        }
-
-        if ($request_type == 'GET') {
-            $routes[$prefix.'/(?P<element>\w+)/(?P<id>\d+)'] = array('action' => 'tap/elementResource/show');
-        }
-
-        if (in_array($request_type, array('PUT', 'PATCH'))) {
-            $routes[$prefix.'/(?P<element>\w+)/(?P<id>\d+)'] = array('action' => 'tap/elementResource/update');
-        }
-
-        if ($request_type == 'DELETE') {
-            $routes[$prefix.'/(?P<element>\w+)/(?P<id>\d+)'] = array('action' => 'tap/elementResource/destroy');
-        }
+        $routes = array_replace($routes, craft()->tap_routes->generateElementsActionsRoutes($elements, $prefix));
 
         return $routes;
     }
