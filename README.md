@@ -18,6 +18,7 @@ DELETE    | /tap/{element}/{id} | destroy
 
 ### Config
 
-Parameter | Type   | Default | Description
-:-------- | :---   | :------ | :----------
-prefix    | string | tap     | Specify a value to prefix Endpoints with
+Parameter | Type   | Default    | Description
+:-------- | :---   | :--------- | :----------
+prefix    | string | tap        | Specify a value to prefix Endpoints with
+elements  | array  | array(...) | Define available element types, and their actions
