@@ -27,7 +27,9 @@ Parameter | Type   | Default    | Description
 prefix    | string | tap        | Specify a value to prefix Endpoints with
 elements  | array  | array(...) | Define available element types, and their actions
 
-The elements parameter array should follow this format:
+> **Note:** You'll need to create `craft/config/tap.php`, and define the above parameters there.
+
+The 'elements' parameter array should follow this format:
 
 ```php
 'elements' => array(
@@ -38,5 +40,3 @@ The elements parameter array should follow this format:
 ```
 
 By default, all built-in Element Types, and all their resource actions are made available.
-
-> **Note:** You'll need to create `craft/config/tap.php`, and define the above parameters there.
