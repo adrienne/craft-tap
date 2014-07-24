@@ -1,3 +1,5 @@
+![](http://f.cl.ly/items/432N143b3r3H3L1Q2A1z/McLL8Xzni.png "craft-tap")
+
 # craft-tap
 
 HTTP RESTful Element API Plugin for Craft CMS
