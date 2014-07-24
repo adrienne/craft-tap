@@ -2,6 +2,8 @@
 
 HTTP RESTful Element API Plugin for Craft CMS
 
+This plugin provides a means for you to *Tap* into your Craft installation programatically via HTTP in a RESTful fashion.
+
 ### Routes
 
 Verb      | Path                | Action
