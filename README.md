@@ -33,9 +33,9 @@ The 'elements' parameter array should follow this format:
 
 ```php
 'elements' => array(
-    'entry'    => array('index', 'store', 'show', 'update', 'destroy'),
-    'category' => array('index', 'store', 'show', 'update', 'destroy'),
-    'user'     => array('index', 'store', 'show', 'update', 'destroy'),
+    'user'     => array('index', 'store', 'show', 'update'),
+    'entry'    => array('index', 'show'),
+    'category' => array('index', 'show', 'update'),
 )
 ```
 
