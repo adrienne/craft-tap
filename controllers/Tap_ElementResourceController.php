@@ -4,16 +4,35 @@ namespace Craft;
 
 class Tap_ElementResourceController extends Tap_ResourceController
 {
+    /**
+     * Get Element Type
+     *
+     * @param string $element Element
+     *
+     * @return string Element Type
+     */
     protected function getElementType($element)
     {
         return str_replace(' ', '', ucwords(strtolower(str_replace('_', ' ', $element))));
     }
 
+    /**
+     * Get Query
+     *
+     * @return array Query
+     */
     protected function getQuery()
     {
         return array_diff_key(craft()->request->getQuery(), array_flip(array('p')));
     }
 
+    /**
+     * Index Action
+     *
+     * @param string $element Element
+     *
+     * @return void
+     */
     public function index($element)
     {
         try {
@@ -41,21 +60,52 @@ class Tap_ElementResourceController extends Tap_ResourceController
         ));
     }
 
+    /**
+     * Store Action
+     *
+     * @param string $element Element
+     *
+     * @return void
+     */
     public function store($element)
     {
         //
     }
 
+    /**
+     * Show Action
+     *
+     * @param string $element Element
+     * @param string $id      ID
+     *
+     * @return void
+     */
     public function show($element, $id)
     {
         //
     }
 
+    /**
+     * Update Action
+     *
+     * @param string $element Element
+     * @param string $id      ID
+     *
+     * @return void
+     */
     public function update($element, $id)
     {
         //
     }
 
+    /**
+     * Destroy Action
+     *
+     * @param string $element Element
+     * @param string $id      ID
+     *
+     * @return void
+     */
     public function destroy($element, $id)
     {
         //
