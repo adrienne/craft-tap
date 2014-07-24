@@ -20,11 +20,23 @@ DELETE    | /tap/{element}/{id} | destroy
 
 ### Configuration
 
-Seeing as how this plugin opens up a lot of functionality, it's only fitting that you have control over certain things. Here's a list of parameters you can define in your site's configuration.
+Seeing as how this plugin opens up a lot of functionality, it's only fitting that you have control over certain things. Here's a list of parameters available for your customization:
 
 Parameter | Type   | Default    | Description
 :-------- | :---   | :--------- | :----------
 prefix    | string | tap        | Specify a value to prefix Endpoints with
 elements  | array  | array(...) | Define available element types, and their actions
 
-> **Note:** You'll need to create a new config file here: `craft/config/tap.php`
+The elements parameter array should follow this format:
+
+```php
+'elements' => array(
+    'entry'    => array('index', 'store', 'show', 'update', 'destroy'),
+    'category' => array('index', 'store', 'show', 'update', 'destroy'),
+    'user'     => array('index', 'store', 'show', 'update', 'destroy'),
+)
+```
+
+By default, all built-in Element Types, and all their resource actions are made available.
+
+> **Note:** You'll need to create `craft/config/tap.php`, and define the above parameters there.
