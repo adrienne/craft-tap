@@ -16,7 +16,7 @@ GET       | /tap/{element}/{id} | show
 PUT,PATCH | /tap/{element}/{id} | update
 DELETE    | /tap/{element}/{id} | destroy
 
-### Config
+### Configuration
 
 Parameter | Type   | Default    | Description
 :-------- | :---   | :--------- | :----------
