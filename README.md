@@ -27,4 +27,4 @@ Parameter | Type   | Default    | Description
 prefix    | string | tap        | Specify a value to prefix Endpoints with
 elements  | array  | array(...) | Define available element types, and their actions
 
-> Note: You'll need to create a new config file here: `craft/config/tap.php`
+> **Note:** You'll need to create a new config file here: `craft/config/tap.php`
