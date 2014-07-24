@@ -66,6 +66,10 @@ class Tap_ElementTransformerService extends BaseApplicationComponent
      */
     public function transformAttribute($value, array $config)
     {
+        if ($value instanceof ElementCriteriaModel) {
+            $value = $this->transformCollection($value->find());
+        }
+
         $value = craft()->tap_modelTransformer->transformAttribute($value, $config);
 
         return $value;
