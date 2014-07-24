@@ -6,7 +6,7 @@ class Tap_ElementResourceController extends Tap_ResourceController
 {
     protected function getElementType($element)
     {
-        return ucwords(strtolower($element));
+        return str_replace(' ', '', ucwords(strtolower(str_replace('_', ' ', $element))));
     }
 
     public function index($element)
