@@ -29,7 +29,7 @@ elements  | array  | array(...) | Define available element types, and their acti
 
 > **Note:** You'll need to create `craft/config/tap.php`, and define the above parameters there.
 
-The 'elements' parameter array should follow this format:
+The 'elements' parameter array should follow the format in this example:
 
 ```php
 'elements' => array(
