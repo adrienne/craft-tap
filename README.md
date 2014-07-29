@@ -6,6 +6,8 @@ HTTP RESTful Element API Plugin for Craft CMS
 
 This plugin provides a means for you to *Tap* into your Craft installation programatically via HTTP in a RESTful fashion.
 
+**Version:** Pre-alpha (This plugin is not completed, and should not be used in any environment)
+
 ### Routes
 
 Like Laravel's [Resource Controllers](http://laravel.com/docs/controllers#resource-controllers "Resource Controllers - Laravel"), routes are generated for a variety of RESTful actions. A controller dynamically handles these actions, and completes the Request. If you need to limit which actions are available for an Element, they can be defined in the configuration (See below).
