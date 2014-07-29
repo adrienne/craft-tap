@@ -102,4 +102,16 @@ class Tap_BaseController extends BaseController
     {
         return $this->setStatusCode(404)->respondWithError($message);
     }
+
+    /**
+     * Respond Internal Server Error
+     *
+     * @param string $message Message
+     *
+     * @return void
+     */
+    public function respondInternalServerError($message = "Internal Server Error")
+    {
+        return $this->setStatusCode(500)->respondWithError($message);
+    }
 }
