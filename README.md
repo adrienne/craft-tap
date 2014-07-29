@@ -20,6 +20,14 @@ GET       | /tap/{element}/{id} | show    | Display the specified element
 PUT,PATCH | /tap/{element}/{id} | update  | Update the specified element
 DELETE    | /tap/{element}/{id} | destroy | Remove the specified element
 
+### Requests
+
+- TODO: Demonstrate how Requests are made
+
+### Responses
+
+- TODO: Demonstrate how Responses are returned
+
 ### Configuration
 
 Seeing as how this plugin opens up a lot of functionality, it's only fitting that you have control over certain things. Here's a list of parameters available for your customization:
