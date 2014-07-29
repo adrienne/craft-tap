@@ -91,7 +91,7 @@ class Tap_ElementResourceController extends Tap_ResourceController
         $criteria->id = $id;
 
         if (! $element = $criteria->first()) {
-            return $this->respondNotFound("Element Not Found");
+            return $this->respondNotFound("Not Found: Unable to show element");
         }
 
         return $this->respond(array(
