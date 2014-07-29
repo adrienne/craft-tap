@@ -10,13 +10,13 @@ This plugin provides a means for you to *Tap* into your Craft installation progr
 
 Like Laravel's [Resource Controllers](http://laravel.com/docs/controllers#resource-controllers "Resource Controllers - Laravel"), routes are generated for a variety of RESTful actions. A controller dynamically handles these actions, and completes the Request. If you need to limit which actions are available for an Element, they can be defined in the configuration (See below).
 
-Verb      | Path                | Action
-:---      | :---                | :-----
-GET       | /tap/{element}      | index
-POST      | /tap/{element}      | store
-GET       | /tap/{element}/{id} | show
-PUT,PATCH | /tap/{element}/{id} | update
-DELETE    | /tap/{element}/{id} | destroy
+Verb      | Path                | Action  | Description
+:---      | :---                | :-----  | :----------
+GET       | /tap/{element}      | index   | Display a listing of the element
+POST      | /tap/{element}      | store   | Store a newly created element
+GET       | /tap/{element}/{id} | show    | Display the specified element
+PUT,PATCH | /tap/{element}/{id} | update  | Update the specified element
+DELETE    | /tap/{element}/{id} | destroy | Remove the specified element
 
 ### Configuration
 
