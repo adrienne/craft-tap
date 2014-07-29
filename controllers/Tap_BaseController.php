@@ -63,6 +63,23 @@ class Tap_BaseController extends BaseController
     }
 
     /**
+     * Respond with Success
+     *
+     * @param string $message Message
+     *
+     * @return void
+     */
+    public function respondWithSuccess($message)
+    {
+        return $this->respond(array(
+            'success' => array(
+                'status_code' => $this->getStatusCode(),
+                'message'     => $message,
+            ),
+        ));
+    }
+
+    /**
      * Respond With Error
      *
      * @param string $message Message
