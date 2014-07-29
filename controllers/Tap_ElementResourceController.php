@@ -122,6 +122,22 @@ class Tap_ElementResourceController extends Tap_ResourceController
      */
     public function destroy($element, $id)
     {
-        //
+        try {
+            $criteria = craft()->elements->getCriteria($this->getElementType($element));
+        } catch (Exception $exception) {
+            return $this->respondBadRequest();
+        }
+
+        $criteria->id = $id;
+
+        if (! $element = $criteria->first()) {
+            return $this->respondNotFound("Not Found: Unable to destroy element");
+        }
+
+        if (! craft()->elements->deleteElementById($element->id)) {
+            return $this->respondInternalServerError("Internal Server Error: Unable to destroy element");
+        }
+
+        return $this->respondWithSuccess("OK: Destroyed element");
     }
 }
