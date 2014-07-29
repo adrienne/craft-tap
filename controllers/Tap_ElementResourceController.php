@@ -82,7 +82,21 @@ class Tap_ElementResourceController extends Tap_ResourceController
      */
     public function show($element, $id)
     {
-        //
+        try {
+            $criteria = craft()->elements->getCriteria($this->getElementType($element));
+        } catch (Exception $exception) {
+            return $this->respondBadRequest();
+        }
+
+        $criteria->id = $id;
+
+        if (! $element = $criteria->first()) {
+            return $this->respondNotFound("Element Not Found");
+        }
+
+        return $this->respond(array(
+            'element' => craft()->tap_elementTransformer->transformItem($element),
+        ));
     }
 
     /**
