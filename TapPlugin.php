@@ -54,7 +54,7 @@ class TapPlugin extends BasePlugin
         $routes = array();
 
         $elements = craft()->config->get('elements', 'tap');
-        $prefix = trim(craft()->config->get('prefix', 'tap'), '/');
+        $prefix = craft()->config->get('prefix', 'tap');
 
         $routes = array_replace($routes, craft()->tap_routes->generateElementsActionsRoutes($elements, $prefix));
 
