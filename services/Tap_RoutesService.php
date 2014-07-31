@@ -31,10 +31,14 @@ class Tap_RoutesService extends BaseApplicationComponent
 
         $request_type = craft()->request->getRequestType();
 
+        if (! is_null($prefix)) {
+            $prefix = trim($prefix, '/');
+        }
+
         foreach ($elements as $element => $actions) {
             foreach ($actions as $action) {
                 if (array_key_exists($action, $this->actionConfigs) && in_array($request_type, explode(',', $this->actionConfigs[$action][0]))) {
-                    $routes[trim(trim($prefix, '/').'/(?P<element>'.$element.')/'.trim($this->actionConfigs[$action][1], '/'), '/')] = array('action' => 'tap/elementResource/'.$action);
+                    $routes[trim($prefix.'/(?P<element>'.$element.')/'.trim($this->actionConfigs[$action][1], '/'), '/')] = array('action' => 'tap/elementResource/'.$action);
                 }
             }
         }
