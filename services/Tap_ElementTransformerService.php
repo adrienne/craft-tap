@@ -2,20 +2,8 @@
 
 namespace Craft;
 
-class Tap_ElementTransformerService extends BaseApplicationComponent
+class Tap_ElementTransformerService extends Tap_ModelTransformerService
 {
-    /**
-     * Transform Collection
-     *
-     * @param array $collection Collection
-     *
-     * @return array Collection
-     */
-    public function transformCollection(array $collection)
-    {
-        return array_map(array($this, 'transformItem'), $collection);
-    }
-
     /**
      * Transform Item
      *
@@ -70,7 +58,7 @@ class Tap_ElementTransformerService extends BaseApplicationComponent
             $value = $this->transformCollection($value->find());
         }
 
-        $value = craft()->tap_modelTransformer->transformAttribute($value, $config);
+        $value = parent::transformAttribute($value, $config);
 
         return $value;
     }
