@@ -25,7 +25,7 @@ class Tap_RoutesService extends BaseApplicationComponent
      *
      * @return array Routes
      */
-    public function generateElementsActionsRoutes(array $elements, $prefix = NULL)
+    public function generateElementsActionsRoutes(array $elements, $prefix = null)
     {
         $routes = array();
 
